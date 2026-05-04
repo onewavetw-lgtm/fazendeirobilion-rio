@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forçada a Casar - O Filme | Acesso Exclusivo</title>
+    <meta name="description"
+        content="Assista agora ao filme que parou a internet. Forçada a casar para salvar o pai, ela descobre que o fazendeiro é bilionário.">
+
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@400;700;900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-color: #08080a;
+            --surface-color: #121216;
+            --surface-light: #1c1c22;
+            --primary-color: #e50914;
+            /* Streaming red */
+            --primary-hover: #f40612;
+            --text-main: #ffffff;
+            --text-muted: #a1a1aa;
+            --gold: #f5c518;
+            --radius: 12px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        /* Promo Bar */
+        .promo-bar {
+            background: linear-gradient(90deg, #ff0000, #990000);
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 15px rgba(229, 9, 20, 0.3);
+        }
+
+        .countdown {
+            font-family: monospace;
+            font-size: 1.1rem;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-left: 8px;
+        }
+
+        /* Container & Layout */
+        .container {
+            max-width: 800px;
+            /* Kept focused for high conversion */
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 60px 0;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 40px 20px 60px;
+            background: radial-gradient(circle at top, rgba(229, 9, 20, 0.15) 0%, var(--bg-color) 70%);
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(229, 9, 20, 0.2);
+            color: var(--primary-color);
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 20px;
+            border: 1px solid rgba(229, 9, 20, 0.3);
+        }
+
+        .poster-container {
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto 30px;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 40px rgba(229, 9, 20, 0.2);
+            position: relative;
+        }
+
+        .poster-container img {
+            width: 100%;
+            display: block;
+            border-radius: var(--radius);
+            transition: transform 0.5s ease;
+        }
+
+        .poster-container:hover img {
+            transform: scale(1.03);
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            line-height: 1.2;
+            margin-bottom: 15px;
+            background: linear-gradient(to right, #fff, #ccc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        .price-highlight {
+            font-size: 2rem;
+            color: var(--gold);
+            font-weight: 900;
+            margin: 20px 0;
+            font-family: 'Outfit', sans-serif;
+            text-shadow: 0 2px 10px rgba(245, 197, 24, 0.2);
+        }
+
+        /* Buttons */
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(to bottom, #ff0814, #c9000a);
+            color: white;
+            text-decoration: none;
+            padding: 18px 40px;
+            font-size: 1.2rem;
+            font-weight: 800;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 10px 25px rgba(229, 9, 20, 0.4);
+            transition: var(--transition);
+            width: 100%;
+            max-width: 400px;
+            border: 2px solid #ff4a52;
+            animation: pulse 2s infinite;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(229, 9, 20, 0.6);
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(229, 9, 20, 0.6);
+            }
+
+            70% {
+                box-shadow: 0 0 0 15px rgba(229, 9, 20, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(229, 9, 20, 0);
+            }
+        }
+
+        /* Video Preview Section */
+        .video-section {
+            background-color: var(--surface-color);
+            border-top: 1px solid var(--surface-light);
+            border-bottom: 1px solid var(--surface-light);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 40px;
+        }
+
+        .video-wrapper {
+            width: 100%;
+            max-width: 400px;
+            /* Ideal size for vertical 9:16 videos on desktop */
+            margin: 0 auto;
+            border-radius: var(--radius);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+            background: #000;
+            border: 1px solid var(--surface-light);
+            overflow: hidden;
+        }
+
+        /* Benefits */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        @media (min-width: 600px) {
+            .benefits-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .benefit-card {
+            background: var(--surface-color);
+            padding: 30px 20px;
+            border-radius: var(--radius);
+            text-align: center;
+            border: 1px solid var(--surface-light);
+            transition: var(--transition);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(229, 9, 20, 0.4);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .benefit-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .benefit-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .benefit-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* Testimonials Carousel */
+        .testimonials-section {
+            background-color: var(--surface-color);
+            background-image: radial-gradient(circle at center, rgba(229, 9, 20, 0.05) 0%, transparent 70%);
+        }
+
+        .carousel-container {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+            width: 500%;
+            /* For 5 slides */
+        }
+
+        .carousel-slide {
+            width: 20%;
+            padding: 0 10px;
+            flex-shrink: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .testimonial-image-container {
+            width: 100%;
+            max-width: 350px;
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 2px solid var(--surface-light);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .testimonial-image-container img {
+            width: 100%;
+            display: block;
+            border-radius: var(--radius);
+        }
+
+        /* Pricing Card */
+        .pricing-section {
+            background: linear-gradient(180deg, var(--bg-color) 0%, var(--surface-color) 100%);
+        }
+
+        .pricing-card {
+            background: linear-gradient(145deg, var(--surface-light), var(--surface-color));
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            border: 2px solid var(--primary-color);
+            box-shadow: 0 20px 50px rgba(229, 9, 20, 0.15);
+            position: relative;
+            max-width: 450px;
+            margin: 0 auto;
+        }
+
+        .pricing-card::before {
+            content: 'OFERTA ÚNICA';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary-color);
+            color: white;
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .plan-name {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+            color: var(--text-main);
+        }
+
+        .plan-price {
+            font-size: 3.5rem;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 900;
+            color: #fff;
+            margin: 20px 0;
+            line-height: 1;
+        }
+
+        .plan-price span {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .plan-features {
+            list-style: none;
+            margin: 30px 0;
+            text-align: left;
+        }
+
+        .plan-features li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            color: #ddd;
+        }
+
+        .plan-features li::before {
+            content: '✓';
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        /* Guarantee */
+        .guarantee {
+            background: var(--surface-color);
+            text-align: center;
+            padding: 50px 20px;
+            border-radius: var(--radius);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 40px;
+        }
+
+        .guarantee-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        .guarantee h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .guarantee p {
+            color: var(--text-muted);
+            max-width: 600px;
+        }
+
+        /* FAQ */
+        .faq-item {
+            background: var(--surface-color);
+            border: 1px solid var(--surface-light);
+            border-radius: 8px;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            color: var(--text-muted);
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 20px;
+            max-height: 200px;
+            border-top: 1px solid var(--surface-light);
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--surface-light);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Promo Bar -->
+    <div class="promo-bar">
+        Essa promoção acaba em <span class="countdown" id="timer">19:52</span>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container">
+            <div class="poster-container">
+                <!-- USER INSTRUCTION: Save your image precisely as "poster.png" or "poster.jpg" in the same folder, or change the src below -->
+                <img src="poster.jpg"
+                    alt="Poster: Forçada a casar para salvar o pai, ela descobre que o fazendeiro é bilionário"
+                    onerror="this.src='https://placehold.co/400x600/121216/ffffff?text=Capa+do+Filme'">
+            </div>
+
+            <div class="hero-badge">Liberado agora: O Filme Mais Assistido</div>
+
+            <h1>Forçada a casar para salvar o pai, ela descobre que o "fazendeiro" é bilionário</h1>
+            <p>O filme completo e dublado, liberado para você assistir agora mesmo no seu celular, TV ou computador.</p>
+
+            <div class="price-highlight">Apenas R$ 10,00</div>
+
+            <a href="#oferta" class="cta-button">Quero Assistir Agora</a>
+        </div>
+    </header>
+
+    <!-- Video Preview Section -->
+    <section class="video-section">
+        <div class="container">
+            <h2 class="section-title">Prévia do Filme</h2>
+            <div class="video-wrapper">
+                <script src="https://app.litevideo.net/p.js" async></script>
+                <lt-v2 v="b67db1a9-8f20-418d-a7f8-8548c78553db" ar="9:16" sc="0" st="0" ap="1" lp="0" cc="571e1e"
+                    ib="d11010" ps="xlarge" pc="eef1ef" ph="8" pi="square"></lt-v2>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">O Que Você Vai Receber</h2>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <span class="benefit-icon">🎬</span>
+                    <h3>O Filme Completo</h3>
+                    <p>Acesso imediato à história completa. Comece, pause e termine quando quiser.</p>
+                </div>
+                <div class="benefit-card">
+                    <span class="benefit-icon">📱</span>
+                    <h3>Multi-dispositivo</h3>
+                    <p>Assista no conforto da sua TV, ou pelo celular, tablet e computador.</p>
+                </div>
+                <div class="benefit-card">
+                    <span class="benefit-icon">⚡</span>
+                    <h3>Sem Limitações</h3>
+                    <p>Sem anúncios chatos interrompendo, sem travamentos e com qualidade de cinema.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Carousel -->
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title">O Que Dizem Quem Já Assistiu</h2>
+            <div class="carousel-container">
+                <div class="carousel-track" id="testimonialTrack">
+                    <!-- Slide 1 -->
+                    <div class="carousel-slide">
+                        <div class="testimonial-image-container">
+                            <img src="depoimentos (1).png" alt="Depoimento 1">
+                        </div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="carousel-slide">
+                        <div class="testimonial-image-container">
+                            <img src="depoimentos (2).png" alt="Depoimento 2">
+                        </div>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="carousel-slide">
+                        <div class="testimonial-image-container">
+                            <img src="depoimentos (3).png" alt="Depoimento 3">
+                        </div>
+                    </div>
+                    <!-- Slide 4 -->
+                    <div class="carousel-slide">
+                        <div class="testimonial-image-container">
+                            <img src="depoimentos (4).png" alt="Depoimento 4">
+                        </div>
+                    </div>
+                    <!-- Slide 5 -->
+                    <div class="carousel-slide">
+                        <div class="testimonial-image-container">
+                            <img src="depoimentos (5).png" alt="Depoimento 5">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing / Offer -->
+    <section id="oferta" class="pricing-section">
+        <div class="container">
+            <h2 class="section-title">Escolha Seu Acesso</h2>
+
+            <div class="pricing-card">
+                <div class="plan-name">Acesso ao Filme</div>
+                <div class="plan-price"><span>R$</span> 10<span>,00</span></div>
+                <p style="color: var(--text-muted); margin-bottom: 20px;">Pagamento Único. Sem mensalidades.</p>
+
+                <ul class="plan-features">
+                    <li>Filme completo e dublado liberado na hora</li>
+                    <li>Acesso imediato multi-dispositivo</li>
+                    <li>Sem interrupções ou propagandas</li>
+                    <li>Qualidade de imagem premium</li>
+                </ul>
+
+                <!-- INSTRUÇÃO PARA O USUÁRIO: Coloque o link de checkout do plano de R$ 10 no href abaixo -->
+                <a href="#" class="cta-button">Liberar Filme por R$ 10</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guarantee -->
+    <section>
+        <div class="container">
+            <div class="guarantee">
+                <div class="guarantee-icon">🛡️</div>
+                <h3>Garantia de 7 Dias</h3>
+                <p>Se você não ficar 100% satisfeito com o acesso ao filme ou tiver qualquer problema para assistir,
+                    devolvemos seu dinheiro integralmente em até 7 dias após a compra.</p>
+                <div style="display: flex; gap: 20px; justify-content: center; margin-top: 20px; flex-wrap: wrap;">
+                    <span
+                        style="background: rgba(255,255,255,0.1); padding: 5px 15px; border-radius: 20px; font-size: 0.9rem;">✓
+                        Sem burocracia</span>
+                    <span
+                        style="background: rgba(255,255,255,0.1); padding: 5px 15px; border-radius: 20px; font-size: 0.9rem;">✓
+                        Devolução imediata</span>
+                    <span
+                        style="background: rgba(255,255,255,0.1); padding: 5px 15px; border-radius: 20px; font-size: 0.9rem;">✓
+                        Sem perguntas</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">Dúvidas Frequentes</h2>
+
+            <div class="faq-item">
+                <div class="faq-question">Como funciona o acesso?</div>
+                <div class="faq-answer">Ao confirmar o pagamento de 10 reais, você receberá imediatamente no seu e-mail
+                    o link de acesso exclusivo para assistir ao filme completo.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Posso assistir em quantos dispositivos?</div>
+                <div class="faq-answer">Você pode assistir de qualquer dispositivo logado no seu link exclusivo:
+                    celular, tablet, computador ou TV Smart.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">O pagamento é recorrente?</div>
+                <div class="faq-answer">Não! É um pagamento único de apenas 10 reais. Não há nenhuma mensalidade ou
+                    cobrança escondida.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">E se eu não gostar?</div>
+                <div class="faq-answer">Você tem nossa garantia blindada de 7 dias. Se por qualquer motivo não gostar,
+                    basta mandar um e-mail que devolvemos 100% do seu dinheiro.</div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 - Todos os direitos reservados.</p>
+            <p style="margin-top: 10px; font-size: 0.8rem; opacity: 0.5;">Este site não é afiliado ao Facebook ou a
+                qualquer entidade do Facebook. Depois que você sair do Facebook, a responsabilidade não é deles e sim do
+                nosso site.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts for interactivity -->
+    <script>
+        // Countdown Timer Logic
+        function startTimer(duration, display) {
+            let timer = duration, minutes, seconds;
+            setInterval(function () {
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                display.textContent = minutes + ":" + seconds;
+
+                if (--timer < 0) {
+                    timer = 0; // Stops at 00:00
+                }
+            }, 1000);
+        }
+
+        window.onload = function () {
+            // User requested 19:52, so let's set timer to 19 minutes and 52 seconds
+            let timeParts = "19:52".split(':');
+            let initialTimeInSeconds = (parseInt(timeParts[0]) * 60) + parseInt(timeParts[1]);
+            let display = document.querySelector('#timer');
+            startTimer(initialTimeInSeconds, display);
+        };
+
+        // FAQ Toggle Logic
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', event => {
+                const parent = item.parentElement;
+
+                // Close others
+                document.querySelectorAll('.faq-item').forEach(faq => {
+                    if (faq !== parent) faq.classList.remove('active');
+                });
+
+                // Toggle current
+                parent.classList.toggle('active');
+            });
+        });
+
+        // Auto-play Carousel Logic
+        const track = document.getElementById('testimonialTrack');
+        const slides = document.querySelectorAll('.carousel-slide');
+        let currentSlide = 0;
+        const totalSlides = slides.length;
+
+        function moveToNextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            const slideWidthPercentage = 100 / totalSlides;
+            track.style.transform = `translateX(-${currentSlide * slideWidthPercentage}%)`;
+        }
+
+        setInterval(moveToNextSlide, 3500); // Muda de slide a cada 3,5 segundos
+    </script>
+</body>
+
+</html>
